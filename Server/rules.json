@@ -1,6 +1,6 @@
 [
   {
-    "keywords": ["chào", "Hi", "Hello", "hello", "hi", "Chào"],
+    "keywords": ["chào", "hi", "hello"],
     "response": "Chào bạn mình là Chatbot của Trường Đại học Giao thông Vận tải TP.HCM (UTH). Bạn cần thông tin gì về trường?",
     "priority": 1
   },
@@ -12,11 +12,6 @@
   {
     "keywords": ["cơ sở", "địa chỉ", "campus", "vị trí"],
     "response": "UTH có 2 cơ sở chính: Cơ sở 1 tại 2 Võ Oanh (D3), P.25, Q. Bình Thạnh và Cơ sở 2 tại 450-451 Lê Văn Việt, Q.9, TP.HCM. Ngoài ra còn có các điểm liên kết đào tạo tại các tỉnh.",
-    "priority": 1
-  },
-  {
-    "keywords": ["cơ sở chính", "địa chỉ", "campus", "vị trí"],
-    "response": "UTH có cơ sở chính: Cơ sở 1 tại 2 Võ Oanh (D3), P.25, Q. Bình Thạnh và Cơ sở 2 tại 450-451 Lê Văn Việt, Q.9, TP.HCM.",
     "priority": 1
   },
   {

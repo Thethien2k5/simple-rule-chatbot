@@ -116,6 +116,36 @@
         transform: translateY(0);
         box-shadow: 0 2px 5px rgba(0, 140, 140, 0.2);
       }
+      /* Hiệu ứng trượt cho tin nhắn */
+      @keyframes slideInUser {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInBot {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .user-message {
+        animation: slideInUser 0.4s ease-out;
+      }
+
+      .bot-message {
+        animation: slideInBot 0.4s ease-out;
+      }
     </style>
   </head>
   <body>
@@ -146,12 +176,10 @@
 
         if (!message) return; // Bỏ qua nếu không nhập gì
 
-        // Hiển thị tin nhắn người dùng
         const userPara = document.createElement("p");
         userPara.classList.add("user-message");
         userPara.innerHTML = `<strong>Bạn:</strong> ${message}`;
         responseArea.appendChild(userPara);
-        responseArea.scrollTop = responseArea.scrollHeight;
 
         // Xoá input
         messageInput.value = "";
@@ -171,10 +199,13 @@
           .then((data) => {
             const botMessage =
               data.bot_response || "Không có phản hồi từ chatbot.";
-            const botPara = document.createElement("p");
-            botPara.innerHTML = `<strong>Bot:</strong> ${botMessage}`;
-            responseArea.appendChild(botPara);
-            responseArea.scrollTop = responseArea.scrollHeight;
+            setTimeout(() => {
+              const botPara = document.createElement("p");
+              botPara.classList.add("bot-message");
+              botPara.innerHTML = `<strong>Bot:</strong> ${botMessage}`;
+              responseArea.appendChild(botPara);
+              responseArea.scrollTop = responseArea.scrollHeight;
+            }, 1000);
           })
           .catch((err) => {
             console.error("Lỗi gửi request:", err);

@@ -6,11 +6,13 @@ with open("rules.json", "r", encoding="utf-8") as f:
 
 # sử lý chính
 def get_response(user_input):
+    user_input = user_input.lower()  
+
     matched_rules = []
 
     for rule in rules:
         for keyword in rule["keywords"]:
-            if keyword.lower() in user_input.lower():
+            if keyword.lower() in user_input: 
                 matched_rules.append(rule)
                 break
 
@@ -21,6 +23,7 @@ def get_response(user_input):
         return best_rule["response"]
 
     return "Xin lỗi, tôi chưa hiểu câu hỏi."
+
 
 # Cho phép test nhanh nếu chạy trực tiếp
 if __name__ == "__main__":

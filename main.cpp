@@ -13,7 +13,7 @@ int main() {
 
     // 1. Khởi động Flask server ngầm
     wcout << L"Đang khởi chạy Flask server...\n";
-    ShellExecute(NULL, L"open", L"cmd.exe", L"/c cd Server && python api.py", NULL, SW_HIDE);
+    ShellExecute(NULL, L"open", L"cmd.exe", L"/c cd Server && python api.py", NULL, SW_SHOW);
 
     // 2. Đợi 3 giây để server khởi động
     Sleep(3000);
