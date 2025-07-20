@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTH Chatbot</title>
+    <style>
+      /* Tổng thể */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* Sử dụng gradient dựa trên màu nền của ảnh */
+        background: linear-gradient(135deg, #1e9e99, #125d5a);
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      /* Khung chat chính */
+      .chat-container {
+        width: 100%;
+        max-width: 600px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* Đảm bảo các thành phần con không bị tràn ra ngoài */
+      }
+
+      /* Logo */
+      .logo {
+        max-width: 200px; /* Điều chỉnh kích thước logo */
+        margin: 25px auto 20px; /* Căn giữa và tạo khoảng cách */
+        display: block;
+      }
+
+      .chat-interface {
+        padding: 0 25px 25px;
+      }
+
+      /* Khu vực hiển thị kết quả */
+      #response-area {
+        background-color: #f7f9fa;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        padding: 20px;
+        min-height: 200px;
+        max-height: 400px;
+        overflow-y: auto; /* Thêm thanh cuộn khi nội dung dài */
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      #response-area p {
+        margin: 0 0 12px;
+        color: #454545;
+      }
+      #response-area p:last-child {
+        margin-bottom: 0;
+      }
+      #response-area p.user-message {
+        text-align: right;
+        color: #005f5f;
+      }
+
+      /* Khu vực nhập liệu */
+      .input-area {
+        display: flex;
+        gap: 10px; /* Khoảng cách giữa input và button */
+      }
+
+      /* Ô nhập liệu */
+      #userMessage {
+        flex-grow: 1; /* Chiếm phần lớn không gian */
+        padding: 15px 20px;
+        border: 1px solid #dcdcdc;
+        border-radius: 12px;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      #userMessage:focus {
+        border-color: #008c8c; /* Màu xanh teal khi focus */
+        box-shadow: 0 0 0 4px rgba(0, 140, 140, 0.2);
+      }
+
+      /* Nút Gửi */
+      #apiButton {
+        background-color: #008c8c; /* Màu xanh teal từ nút trong ảnh */
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease,
+          box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 140, 140, 0.25);
+      }
+
+      #apiButton:hover {
+        background-color: #006a6a; /* Đậm hơn khi hover */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 140, 140, 0.3);
+      }
+
+      #apiButton:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 140, 140, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <img src="logo.png" alt="Logo Trường Đại học GTVT TP.HCM" class="logo" />
+
+      <div class="chat-interface">
+        <div id="response-area">
+          <p><strong>Bot:</strong> Chào bạn, tôi có thể giúp gì cho bạn?</p>
+        </div>
+
+        <div class="input-area">
+          <input
+            type="text"
+            id="userMessage"
+            placeholder="Nhập câu hỏi của bạn..."
+          />
+          <button id="apiButton" onclick="callAPI()">Gửi</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function callAPI() {
+        const messageInput = document.getElementById("userMessage");
+        const responseArea = document.getElementById("response-area");
+        const message = messageInput.value.trim();
+
+        if (!message) return; // Bỏ qua nếu không nhập gì
+
+        // Hiển thị tin nhắn người dùng
+        const userPara = document.createElement("p");
+        userPara.classList.add("user-message");
+        userPara.innerHTML = `<strong>Bạn:</strong> ${message}`;
+        responseArea.appendChild(userPara);
+        responseArea.scrollTop = responseArea.scrollHeight;
+
+        // Xoá input
+        messageInput.value = "";
+
+        // Gửi đến Flask server
+        fetch("http://127.0.0.1:5000/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: message }),
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Lỗi từ server!");
+            return res.json();
+          })
+          .then((data) => {
+            const botMessage =
+              data.bot_response || "Không có phản hồi từ chatbot.";
+            const botPara = document.createElement("p");
+            botPara.innerHTML = `<strong>Bot:</strong> ${botMessage}`;
+            responseArea.appendChild(botPara);
+            responseArea.scrollTop = responseArea.scrollHeight;
+          })
+          .catch((err) => {
+            console.error("Lỗi gửi request:", err);
+            const errorPara = document.createElement("p");
+            errorPara.innerHTML = `<strong>Bot:</strong> Không thể kết nối tới server Flask.`;
+            errorPara.style.color = "#ff6347";
+            responseArea.appendChild(errorPara);
+            responseArea.scrollTop = responseArea.scrollHeight;
+          });
+      }
+
+      document
+        .getElementById("userMessage")
+        .addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault(); // Ngăn form tự reload nếu có
+            callAPI(); // Gọi hàm gửi API
+          }
+        });
+    </script>
+  </body>
+</html>

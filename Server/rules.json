@@ -1,0 +1,192 @@
+[
+  {
+    "keywords": ["chào", "Hi", "Hello", "hello", "hi", "Chào"],
+    "response": "Chào bạn mình là Chatbot của Trường Đại học Giao thông Vận tải TP.HCM (UTH). Bạn cần thông tin gì về trường?",
+    "priority": 1
+  },
+  {
+    "keywords": ["thành lập", "năm nào", "lịch sử", "ra đời"],
+    "response": "Trường Đại học Giao thông Vận tải TP.HCM (UTH) được thành lập năm 2001 trên cơ sở nâng cấp cơ sở phía Nam của Đại học Giao thông Vận tải.",
+    "priority": 1
+  },
+  {
+    "keywords": ["cơ sở", "địa chỉ", "campus", "vị trí"],
+    "response": "UTH có 2 cơ sở chính: Cơ sở 1 tại 2 Võ Oanh (D3), P.25, Q. Bình Thạnh và Cơ sở 2 tại 450-451 Lê Văn Việt, Q.9, TP.HCM. Ngoài ra còn có các điểm liên kết đào tạo tại các tỉnh.",
+    "priority": 1
+  },
+  {
+    "keywords": ["cơ sở chính", "địa chỉ", "campus", "vị trí"],
+    "response": "UTH có cơ sở chính: Cơ sở 1 tại 2 Võ Oanh (D3), P.25, Q. Bình Thạnh và Cơ sở 2 tại 450-451 Lê Văn Việt, Q.9, TP.HCM.",
+    "priority": 1
+  },
+  {
+    "keywords": ["ngành học", "chuyên ngành", "đào tạo", "khoa"],
+    "response": "UTH đào tạo đa dạng các ngành: Kỹ thuật giao thông, Kinh tế vận tải, Công nghệ thông tin, Cơ khí, Điện-Điện tử, Quản trị kinh doanh, Logistics, Kỹ thuật xây dựng công trình giao thông, Kỹ thuật ô tô, Kỹ thuật môi trường, Điều khiển tự động hóa.",
+    "priority": 1
+  },
+  {
+    "keywords": ["học phí", "chi phí học", "mức phí"],
+    "response": "Học phí năm 2025 từ 13-20 triệu đồng/năm, tùy ngành học và chương trình đào tạo cụ thể.",
+    "priority": 1
+  },
+  {
+    "keywords": ["học bổng", "hỗ trợ học tập", "miễn giảm"],
+    "response": "UTH cung cấp nhiều loại học bổng: khuyến khích học tập (GPA ≥ 3.0/4.0), học bổng doanh nghiệp, hỗ trợ hoàn cảnh khó khăn, và học bổng toàn phần cho sinh viên xuất sắc đặc biệt.",
+    "priority": 1
+  },
+  {
+    "keywords": ["ký túc xá", "ktx", "chỗ ở", "nội trú"],
+    "response": "UTH có ký túc xá tại Cơ sở 1 (Q. Bình Thạnh) chứa ~1.500 sinh viên, đầy đủ tiện nghi. Chi phí 300.000-500.000 VNĐ/tháng tùy loại phòng. Ưu tiên sinh viên xa nhà và hoàn cảnh khó khăn.",
+    "priority": 1
+  },
+  {
+    "keywords": ["tuyển sinh", "xét tuyển", "đăng ký", "nhập học"],
+    "response": "Tuyển sinh từ tháng 4-8 hàng năm. Xét tuyển dựa trên: điểm thi THPT Quốc gia, học bạ THPT, và kỳ thi đánh giá năng lực ĐHQG TP.HCM. Điểm chuẩn 2024: 16-23 điểm tùy ngành.",
+    "priority": 1
+  },
+  {
+    "keywords": ["liên thông", "chuyển cấp", "từ cao đẳng"],
+    "response": "UTH có chương trình đào tạo liên thông từ trung cấp, cao đẳng lên đại học cho các ngành kỹ thuật và kinh tế với lịch học linh hoạt.",
+    "priority": 1
+  },
+  {
+    "keywords": ["quốc tế", "2+2", "trao đổi", "du học"],
+    "response": "UTH liên kết quốc tế với Đại học Tongmyong (Hàn Quốc), Đại học Giao thông Vận tải Đài Loan (chương trình 2+2), và hỗ trợ đăng ký học bổng Erasmus+, AUN.",
+    "priority": 1
+  },
+  {
+    "keywords": ["thời gian học", "thời khóa biểu", "kéo dài"],
+    "response": "Hệ đại học chính quy: 4 năm (một số ngành kỹ thuật 4.5 năm). Có chương trình đào tạo từ xa cho Quản trị kinh doanh và Logistics.",
+    "priority": 1
+  },
+  {
+    "keywords": ["câu lạc bộ", "hoạt động ngoại khóa", "sinh viên"],
+    "response": "UTH có đa dạng CLB: Kỹ thuật giao thông, Văn nghệ, Tình nguyện, Công nghệ thông tin, Khởi nghiệp, Tiếng Anh, và các đội tình nguyện Mùa Hè Xanh, Xuân Tình Nguyện.",
+    "priority": 1
+  },
+  {
+    "keywords": ["liên hệ", "phòng đào tạo", "tư vấn"],
+    "response": "Liên hệ Phòng Đào tạo: (028) 3512-0756, email: daotao@utc2.edu.vn. Trung tâm Hỗ trợ Sinh viên tại Cơ sở 1, Q. Bình Thạnh cung cấp tư vấn toàn diện.",
+    "priority": 1
+  },
+  {
+    "keywords": ["việc làm", "thực tập", "career", "tuyển dụng"],
+    "response": "Trung tâm Quan hệ Doanh nghiệp tổ chức Ngày hội Việc làm hàng năm, hỗ trợ tìm thực tập tại các đối tác như Tổng Công ty Đường sắt VN, CIENCO, các công ty logistics.",
+    "priority": 1
+  },
+  {
+    "keywords": ["thạc sĩ", "tiến sĩ", "sau đại học", "cao học"],
+    "response": "UTH đào tạo thạc sĩ và tiến sĩ các ngành: Kỹ thuật giao thông, Kinh tế vận tải, Kỹ thuật xây dựng công trình giao thông.",
+    "priority": 1
+  },
+  {
+    "keywords": ["cơ sở vật chất", "thư viện", "phòng thí nghiệm"],
+    "response": "UTH có thư viện hiện đại (mở cửa đến 20:00), phòng thí nghiệm chuyên ngành (Kỹ thuật giao thông, CNTT, Cơ khí, Điện-Điện tử), phòng gym, hệ thống Wi-Fi miễn phí.",
+    "priority": 1
+  },
+  {
+    "keywords": ["công nghệ thông tin", "cntt", "ai", "lập trình"],
+    "response": "Ngành CNTT có chuyên ngành Trí tuệ nhân tạo, Lập trình ứng dụng. Sinh viên tham gia cuộc thi ACM, Olympic Tin học, và học các công nghệ mới như IoT, giao thông thông minh.",
+    "priority": 1
+  },
+  {
+    "keywords": ["xây dựng giao thông", "cầu đường", "hạ tầng"],
+    "response": "Kỹ thuật xây dựng công trình giao thông bao gồm: cầu đường, cảng biển/sông, sân bay, đường sắt, hầm, luồng lạch. Sinh viên tham gia cuộc thi Thiết kế cầu.",
+    "priority": 1
+  },
+  {
+    "keywords": ["kinh tế vận tải", "logistics", "chuỗi cung ứng"],
+    "response": "Kinh tế vận tải có chuyên ngành vận tải biển, đường bộ, đường sắt. Logistics tập trung quản lý chuỗi cung ứng, kho bãi. Có chương trình tham quan cảng, nhà máy.",
+    "priority": 1
+  },
+  {
+    "keywords": ["điện điện tử", "tự động hóa", "hệ thống điện"],
+    "response": "Kỹ thuật Điện-Điện tử chuyên về hệ thống điện giao thông. Điều khiển Tự động hóa ứng dụng trong giao thông thông minh và hệ thống tự động.",
+    "priority": 1
+  },
+  {
+    "keywords": ["cơ khí", "ô tô", "chế tạo máy"],
+    "response": "Kỹ thuật Cơ khí có chuyên ngành cơ khí giao thông, chế tạo máy. Kỹ thuật Ô tô tập trung thiết kế, bảo trì phương tiện giao thông.",
+    "priority": 1
+  },
+  {
+    "keywords": ["môi trường", "xanh", "bền vững"],
+    "response": "Kỹ thuật Môi trường chuyên xử lý môi trường trong giao thông, phát triển giao thông xanh và bền vững.",
+    "priority": 1
+  },
+  {
+    "keywords": ["quản trị kinh doanh", "marketing", "doanh nghiệp"],
+    "response": "Quản trị Kinh doanh có chuyên ngành quản trị doanh nghiệp, marketing. Hỗ trợ khởi nghiệp qua CLB Khởi nghiệp và các workshop.",
+    "priority": 1
+  },
+  {
+    "keywords": ["ngoại ngữ", "tiếng anh", "tiếng hàn", "tiếng trung"],
+    "response": "UTH cung cấp lớp tiếng Anh tăng cường, tiếng Hàn, tiếng Trung. CLB tiếng Anh tổ chức giao lưu và luyện thi TOEIC.",
+    "priority": 1
+  },
+  {
+    "keywords": ["học lại", "chuyển ngành", "song ngành"],
+    "response": "UTH cho phép học lại môn với lịch linh hoạt, chuyển ngành trong năm đầu, và đăng ký song ngành (VD: CNTT + Logistics) theo quy định.",
+    "priority": 1
+  },
+  {
+    "keywords": ["y tế", "sức khỏe", "tư vấn tâm lý"],
+    "response": "UTH có trạm y tế tại Cơ sở 1, Trung tâm Tư vấn Tâm lý Sinh viên (miễn phí), và chính sách hỗ trợ sinh viên khuyết tật.",
+    "priority": 1
+  },
+  {
+    "keywords": ["nghiên cứu khoa học", "dự án", "sáng tạo"],
+    "response": "Trung tâm Nghiên cứu và Ứng dụng Kỹ thuật Giao thông hỗ trợ sinh viên tham gia dự án thực tiễn. Quỹ nghiên cứu khoa học từ năm 2.",
+    "priority": 1
+  },
+  {
+    "keywords": ["kỹ năng mềm", "phỏng vấn", "cv", "nghề nghiệp"],
+    "response": "UTH tổ chức workshop kỹ năng giao tiếp, làm việc nhóm, viết CV, phỏng vấn, và định hướng nghề nghiệp từ năm nhất.",
+    "priority": 1
+  },
+  {
+    "keywords": ["thể thao", "giải đấu", "sân chơi"],
+    "response": "UTH tổ chức giải bóng đá, bóng chuyền, cầu lông hàng năm. Có phòng gym hiện đại tại cả 2 cơ sở.",
+    "priority": 1
+  },
+  {
+    "keywords": ["văn hóa", "lễ hội", "sự kiện"],
+    "response": "UTH tổ chức Ngày hội Văn hóa, Lễ hội Âm nhạc, Tết truyền thống, và các buổi giao lưu cựu sinh viên chia sẻ kinh nghiệm.",
+    "priority": 1
+  },
+  {
+    "keywords": ["học liệu", "tài liệu", "lms", "online"],
+    "response": "UTH sử dụng hệ thống LMS quản lý học tập trực tuyến, thư viện số, email sinh viên (@student.utc2.edu.vn) để truy cập tài liệu chuyên ngành.",
+    "priority": 1
+  },
+  {
+    "keywords": ["vay vốn", "tín dụng", "hỗ trợ tài chính"],
+    "response": "Sinh viên UTH có thể đăng ký vay vốn học phí qua chương trình tín dụng của các ngân hàng liên kết với trường.",
+    "priority": 1
+  },
+  {
+    "keywords": ["xe buýt", "đưa đón", "di chuyển"],
+    "response": "UTH có xe buýt đưa đón miễn phí giữa Cơ sở 1 (Bình Thạnh) và Cơ sở 2 (Q.9) để hỗ trợ sinh viên di chuyển.",
+    "priority": 1
+  },
+  {
+    "keywords": ["khóa học hè", "ngắn hạn", "chứng chỉ"],
+    "response": "UTH tổ chức khóa học hè về kỹ năng chuyên môn, ngoại ngữ và các chứng chỉ nghề ngắn hạn: an toàn giao thông, logistics, phần mềm kỹ thuật.",
+    "priority": 1
+  },
+  {
+    "keywords": ["cuộc thi", "olympic", "quốc tế"],
+    "response": "Sinh viên UTH tham gia Olympic Cơ học, Thiết kế cầu, Lập trình ACM, Thiết kế giao thông châu Á và các cuộc thi lập trình quốc tế.",
+    "priority": 1
+  },
+  {
+    "keywords": ["nhà trọ", "chỗ ở", "thuê nhà"],
+    "response": "Trung tâm Hỗ trợ Sinh viên cung cấp danh sách nhà trọ uy tín, giá phù hợp gần cả 2 cơ sở của trường.",
+    "priority": 1
+  },
+  {
+    "keywords": ["ăn uống", "căng tin", "thực phẩm"],
+    "response": "UTH có căng tin thực đơn đa dạng, dinh dưỡng và giá cả hợp lý phù hợp túi tiền sinh viên.",
+    "priority": 1
+  }
+]
