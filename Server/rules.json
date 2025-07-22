@@ -1,5 +1,10 @@
 [
   {
+    "keywords": ["thank", "cảm ơn", "oke"],
+    "response": "Không có gì, mình rất vui được giúp đỡ bạn!\nNếu bạn cần thêm thông tin gì, hãy cứ hỏi nhé!",
+    "priority": 1
+  },
+  {
     "keywords": ["chào", "hi", "hello"],
     "response": "Chào bạn mình là Chatbot của Trường Đại học Giao thông Vận tải TP.HCM (UTH). Bạn cần thông tin gì về trường?",
     "priority": 1

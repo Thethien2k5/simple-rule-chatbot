@@ -31,4 +31,4 @@ if __name__ == "__main__":
         user_input = input("Bạn: ")
         if user_input.lower() in ["thoát", "exit", "quit"]:
             break
-        print("Bot:", get_response(user_input))
+        print("UTHBot:", get_response(user_input))

@@ -146,6 +146,32 @@
       .bot-message {
         animation: slideInBot 0.4s ease-out;
       }
+
+      /* Hiệu ứng typing "Bot đang trả lời..." */
+      .typing .dot {
+        animation: blink 1s infinite;
+        opacity: 0;
+      }
+
+      .typing .dot.one {
+        animation-delay: 0s;
+      }
+      .typing .dot.two {
+        animation-delay: 0.2s;
+      }
+      .typing .dot.three {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>
@@ -154,7 +180,7 @@
 
       <div class="chat-interface">
         <div id="response-area">
-          <p><strong>Bot:</strong> Chào bạn, tôi có thể giúp gì cho bạn?</p>
+          <p><strong>UTHBot:</strong> Chào bạn, tôi có thể giúp gì cho bạn?</p>
         </div>
 
         <div class="input-area">
@@ -174,55 +200,91 @@
         const responseArea = document.getElementById("response-area");
         const message = messageInput.value.trim();
 
-        if (!message) return; // Bỏ qua nếu không nhập gì
+        if (!message) return;
 
+        // 👉 Hiển thị tin nhắn người dùng
         const userPara = document.createElement("p");
         userPara.classList.add("user-message");
         userPara.innerHTML = `<strong>Bạn:</strong> ${message}`;
         responseArea.appendChild(userPara);
 
-        // Xoá input
+        // 👉 Reset input
         messageInput.value = "";
 
-        // Gửi đến Flask server
-        fetch("http://127.0.0.1:5000/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message: message }),
-        })
-          .then((res) => {
-            if (!res.ok) throw new Error("Lỗi từ server!");
-            return res.json();
-          })
-          .then((data) => {
-            const botMessage =
-              data.bot_response || "Không có phản hồi từ chatbot.";
-            setTimeout(() => {
-              const botPara = document.createElement("p");
-              botPara.classList.add("bot-message");
-              botPara.innerHTML = `<strong>Bot:</strong> ${botMessage}`;
-              responseArea.appendChild(botPara);
-              responseArea.scrollTop = responseArea.scrollHeight;
-            }, 1000);
-          })
-          .catch((err) => {
-            console.error("Lỗi gửi request:", err);
-            const errorPara = document.createElement("p");
-            errorPara.innerHTML = `<strong>Bot:</strong> Không thể kết nối tới server Flask.`;
-            errorPara.style.color = "#ff6347";
-            responseArea.appendChild(errorPara);
-            responseArea.scrollTop = responseArea.scrollHeight;
-          });
+        // 👉 Tạo hiệu ứng "Bot đang suy nghĩ..."
+        const botTyping = document.createElement("p");
+        botTyping.id = "bot-typing";
+        botTyping.innerHTML =
+          `<strong>UTHBot:</strong> <span class="typing">Đang suy nghĩ ` +
+          `<span class="dot one">.</span>` +
+          `<span class="dot two">.</span>` +
+          `<span class="dot three">.</span></span>`;
+        responseArea.appendChild(botTyping);
+        responseArea.scrollTop = responseArea.scrollHeight;
+
+        messageInput.disabled = true;
+        document.getElementById("apiButton").disabled = true;
+
+        // ✅ Đợi 100ms để trình duyệt kịp render hiệu ứng "Đang suy nghĩ..."
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            fetch("http://127.0.0.1:5000/chat", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ message: message }),
+            })
+              .then((res) => {
+                if (!res.ok) throw new Error("Lỗi từ server!");
+                messageInput.disabled = false;
+                document.getElementById("apiButton").disabled = false;
+                messageInput.focus();
+
+                return res.json();
+              })
+              .then((data) => {
+                const typingElement = document.getElementById("bot-typing");
+                if (typingElement) typingElement.remove();
+
+                const botMessage =
+                  data.bot_response || "Không có phản hồi từ chatbot.";
+
+                // 👉 Hiệu ứng slide-in từ bên trái (sau khi xóa 'typing')
+                const botPara = document.createElement("p");
+                botPara.classList.add("bot-message");
+                botPara.innerHTML = `<strong>UTHBot:</strong> ${botMessage}`;
+                responseArea.appendChild(botPara);
+                responseArea.scrollTop = responseArea.scrollHeight;
+                messageInput.disabled = false;
+                document.getElementById("apiButton").disabled = false;
+                messageInput.focus();
+              })
+              .catch((err) => {
+                const typingElement = document.getElementById("bot-typing");
+                if (typingElement) typingElement.remove();
+
+                console.error("Lỗi gửi request:", err);
+                const errorPara = document.createElement("p");
+                errorPara.innerHTML = `<strong>UTHBot:</strong> Không thể kết nối tới server Flask.`;
+                errorPara.style.color = "#ff6347";
+                responseArea.appendChild(errorPara);
+                responseArea.scrollTop = responseArea.scrollHeight;
+                messageInput.disabled = false;
+                document.getElementById("apiButton").disabled = false;
+                messageInput.focus();
+              });
+          }, 2000); // delay nhỏ
+        });
       }
 
+      // 👉 Cho phép nhấn Enter để gửi
       document
         .getElementById("userMessage")
         .addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            e.preventDefault(); // Ngăn form tự reload nếu có
-            callAPI(); // Gọi hàm gửi API
+          if (e.key === "Enter" && !this.disabled) {
+            e.preventDefault();
+            callAPI();
           }
         });
     </script>
